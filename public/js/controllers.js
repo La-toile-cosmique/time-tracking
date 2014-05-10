@@ -1,7 +1,7 @@
 timeTrackingControllers = angular.module('timeTrackingControllers', [])
 
 // Alerts Controller
-.controller('AlertsController', ['$scope', 'Alert', function($scope, Alert){
+.controller('AlertsController', ['$scope', 'Alert', function( $scope, Alert ){
 	$scope.alert = Alert.message;
 		$scope.$watch(
 			function () {
@@ -78,7 +78,7 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 		};
 
 		// Delete a project
-		$scope.deleteProject = function( id_project){
+		$scope.deleteProject = function( id_project ){
 
 			projects = REST.delete( { first_param: $scope.project._id }, function( ) {
 				projectsData.set( projects );
