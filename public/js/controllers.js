@@ -38,13 +38,13 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 	['$scope', 'Alert', 'projectsData', '$resource', 'REST', '$timeout',
 	function($scope, Alert, projectsData, $resource, REST, $timeout){
 
-		$scope.createProject = function( ){
+		$scope.createProject = function(){
 			console.log($scope.createForm);
-			projects = REST.post( $scope.createForm, function( ){
+			projects = REST.post( $scope.createForm, function(){
 				projectsData.set( projects );
 				$scope.createForm = {};
 				Alert.addAlert( 'Projet ajouté' );
-				$timeout( function( ){ Alert.clearAlert( ); }, 5000);
+				$timeout( function(){ Alert.clearAlert(); }, 5000);
 			});
 		};
 
@@ -54,9 +54,10 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 .controller(
 	'DetailProjectController',
 	['$scope', '$resource', 'REST', '$timeout', 'Alert', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
-	function( $scope, $resource, REST, Alert, $timeout, $routeParams, csTimeFilter, $filter, projectsData, $location){
+	function( $scope, $resource, REST, Alert, $timeout, $routeParams, csTimeFilter, $filter, projectsData, $location) {
 
 		$scope.projects = projectsData.get();
+
 		var timeoutId,
 			search = $filter('filter')($scope.projects, {_id: $routeParams.projectId}, true);
 
@@ -69,10 +70,10 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 			$scope.project.totalTime = $scope.project.seconds;
 
 		// Change project state
-		$scope.state = function( active ){
+		$scope.state = function( active ) {
 			$scope.project.active = active;
 			var state = ( active ) ? 'start' : 'stop';
-			projects = REST.query( { first_param: state, second_param: $scope.project._id }, function () {
+			projects = REST.query( { first_param: state, second_param: $scope.project._id }, function() {
 				projectsData.set( projects );
 			});
 		};
@@ -80,7 +81,7 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 		// Delete a project
 		$scope.deleteProject = function( id_project ){
 
-			projects = REST.delete( { first_param: $scope.project._id }, function( ) {
+			projects = REST.delete( { first_param: $scope.project._id }, function() {
 				projectsData.set( projects );
 				$location.path( '/welcome/' );
 				$location.replace( );
@@ -88,14 +89,14 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 
 		};
 
-		$scope.editProject = function( ){
+		$scope.editProject = function(){
 
 			$scope.editMode = true;
 
 		};
 
 		// Edit a project
-		$scope.updateData = function( ){
+		$scope.updateData = function() {
 
 			console.log( $scope.project._id );
 
@@ -106,8 +107,8 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 				first_param: 	$scope.project._id
 			} );
 
-			// Alert.addAlert( 'Projet modifié' );
-			// $timeout( function( ){ Alert.clearAlert( ); }, 5000);
+			Alert.addAlert( 'Projet modifié' );
+			$timeout( function(){ Alert.clearAlert(); }, 5000);
 
 			$scope.editMode = false;
 
