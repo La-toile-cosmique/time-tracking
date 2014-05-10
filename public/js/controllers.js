@@ -39,7 +39,6 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 	function($scope, Alert, projectsData, $resource, REST){
 
 		$scope.createProject = function(){
-			console.log($scope.createForm);
 			projects = REST.post( $scope.createForm, function(){
 				projectsData.set( projects );
 				$scope.createForm = {};
@@ -95,8 +94,6 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 
 		// Edit a project
 		$scope.updateData = function() {
-
-			console.log( $scope.project._id );
 
 			REST.update( {
 				name: 			$scope.project.name,

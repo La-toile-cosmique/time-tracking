@@ -4,8 +4,9 @@ var timeTrackingServices = angular.module( 'timeTrackingServices', [ 'ngResource
 	return {
 		message: false,
 		addAlert: function( message ) {
+			that = this;
 			this.message = message;
-			$timeout( function(){ this.clearAlert(); }, 5000);
+			$timeout( function(){ that.clearAlert() }, 5000);
 		},
 		clearAlert: function() {
 			this.message = false;
