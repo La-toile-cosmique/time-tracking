@@ -35,8 +35,8 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 // Add Controller
 .controller(
 	'AddProjectController',
-	['$scope', 'Alert', 'projectsData', '$resource', 'REST', '$timeout',
-	function($scope, Alert, projectsData, $resource, REST, $timeout){
+	['$scope', 'Alert', 'projectsData', '$resource', 'REST',
+	function($scope, Alert, projectsData, $resource, REST){
 
 		$scope.createProject = function(){
 			console.log($scope.createForm);
@@ -44,17 +44,15 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 				projectsData.set( projects );
 				$scope.createForm = {};
 				Alert.addAlert( 'Projet ajouté' );
-				$timeout( function(){ Alert.clearAlert(); }, 5000);
 			});
 		};
-
 	}])
 
 // Detail Controller
 .controller(
 	'DetailProjectController',
-	['$scope', '$resource', 'REST', '$timeout', 'Alert', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
-	function( $scope, $resource, REST, Alert, $timeout, $routeParams, csTimeFilter, $filter, projectsData, $location) {
+	['Alert', '$scope', '$resource', 'REST', '$timeout', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
+	function(Alert, $scope, $resource, REST, $timeout, $routeParams, csTimeFilter, $filter, projectsData, $location) {
 
 		$scope.projects = projectsData.get();
 

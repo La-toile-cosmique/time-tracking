@@ -40,17 +40,18 @@
 				<div class="form-group has-feedback">
 					<label class="control-label" for="inputSuccess2">Recherche</label>
 					<input type="text" class="form-control" ng-model="query" placeholder="Nom du projet">
-
 					<span class="glyphicon glyphicon-search form-control-feedback"></span>
 				</div>
 
 				<ul class="nav nav-sidebar">
+
 					<li ng-repeat="project in projects | filter:query | orderBy:order">
 						<a class="project" ng-class="{active: project.active}" href="#/projects/{{project._id}}" >
 							{{project.name}}
 							<span ng-class='iconClass(project.active)' ></span>
 						</a>
 					</li>
+
 					<li>
 						<hr>
 						<a href="#/projects/add">
@@ -58,18 +59,23 @@
 							Ajouter un projet
 						</a>
 					</li>
+
 				</ul>
 
 			</div>
 
 
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+				<!-- Alert message -->
 				<div class="row" ng-controller="AlertsController" >
 					<div ng-show="alert" class="alert alert-success">
 						{{alert}}
 					</div>
 				</div>
+
 				<div ng-view class="row" ></div>
+
 			</div>
 
 
