@@ -1,4 +1,4 @@
-var timeTrackingServices = angular.module('timeTrackingServices', ['ngResource'])
+var timeTrackingServices = angular.module( 'timeTrackingServices', [ 'ngResource' ] )
 
 .factory('Alert', [ '$timeout', function( $timeout ) {
 	return {
@@ -14,7 +14,7 @@ var timeTrackingServices = angular.module('timeTrackingServices', ['ngResource']
 }])
 
 // Share data between controllers
-.factory("projectsData", function(){
+.factory( "projectsData", function(){
 	var projects = { data: "" };
 	return {
 		set: function ( data ) {
