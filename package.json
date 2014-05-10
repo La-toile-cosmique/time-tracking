@@ -1,0 +1,14 @@
+{
+  "name": "node-timetracking",
+  "version": "0.0.0",
+  "description": "Time Tracking application",
+  "main": "server.js",
+  "author": "Creasmart",
+  "dependencies": {
+    "express": "~4.0.0",
+    "mongoose": "~3.8.8",
+    "body-parser": "*",
+    "method-override": "*",
+    "browser-sync": "~0.9.1"
+  }
+}
