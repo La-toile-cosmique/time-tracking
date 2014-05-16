@@ -10,6 +10,7 @@
 	<meta name="description" content="Time tracking application">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="./css/main.css">
 
 	<link rel="icon" type="image/png" href="favicon/favicon-196x196.png" sizes="196x196">
@@ -21,77 +22,55 @@
 </head>
 <body ng-controller="ListProjectsController" >
 
-	<header>
-		<nav>
-			<ul>
-				<li>
-					<a class="navbar-brand" href="#">Time Tracking</a>
-				</li>
-			</ul>
-		</nav>
-	</header>
+	<div>
 
-	<div class="container">
+		<div id="left-side">
 
-		<div id="left-container">
+			<h1 id="logo">
+				<a href="#">
+					Time Tracking
+				</a>
+				<i class="fa fa-coffee"></i>
+			</h1>
+
 			<div class="form-group has-feedback">
-				<label class="control-label" for="inputSuccess2">Recherche</label>
-				<input type="text" class="form-control" ng-model="query" placeholder="Nom du projet">
-				<span class="glyphicon glyphicon-search form-control-feedback"></span>
+				<p id='search-block' >
+					<input type="text" class="form-control" ng-model="query" placeholder="Recherche">
+					
+					<i nghide='query' class="fa fa-search"></i>
+					<i ngShow='query' class="fa fa-close"></i>
+
+				</p>
 			</div>
 
 			<ul class="nav nav-sidebar">
 
 				<li ng-repeat="project in projects | filter:query | orderBy:order">
-					<a class="project" ng-class="{active: project.active}" href="#/projects/{{project._id}}" >
-						{{project.name}}
-						<span ng-class='iconClass(project.active)' ></span>
-					</a>
+					<a href="#/projects/{{project._id}}"><i class="fa fa-cogs"></i> <span>{{project.name}}</span></a>
 				</li>
 
-				<li>
-					<hr>
+				<li class='add-project'>
 					<a href="#/projects/add">
-						<span class="glyphicon glyphicon-plus"></span>
-						Ajouter un projet
+						<i class="fa fa-plus"></i> <span>Ajouter</span></a>
 					</a>
 				</li>
 
 			</ul>
+
 		</div>
 		
-		<div id="right-container">
+		<div id="main-content">
 			
-		</div>
-	</div>
-
-
-	<div class="container-fluid">
-		<div class="row">
-
-			<!-- List all projects -->
-			<div class="col-sm-3 col-md-2 sidebar">
-
-
-
-			</div>
-
-
-			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-				<!-- Alert message -->
-				<div class="row" ng-controller="AlertsController" >
-					<div ng-show="alert" class="alert alert-success">
-						{{alert}}
-					</div>
-				</div>
-
-				<div ng-view class="row" ></div>
-
-			</div>
-
+			<div ng-view class='container' ></div>
 
 		</div>
+
+		<div class="row" ng-controller="AlertsController" >
+			<div ng-show="alert" class="alert alert-success">
+				{{alert}}
+			</div>
+		</div>
+
 	</div>
 
 	<script src="./js/vendor/chart.js"></script>

@@ -11,6 +11,7 @@
 		"gulp": "*",
 		"gulp-less": "*",
 		"gulp-plumber": "*",
+		"browser-sync": "*",
 		"method-override": "*"
 	}
 }
