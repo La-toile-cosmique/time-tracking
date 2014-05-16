@@ -10,7 +10,7 @@
 	<meta name="description" content="Time tracking application">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="stylesheet" href="./css/bootstrap.css">
+	<link rel="stylesheet" href="./css/main.css">
 
 	<link rel="icon" type="image/png" href="favicon/favicon-196x196.png" sizes="196x196">
 	<link rel="icon" type="image/png" href="favicon/favicon-160x160.png" sizes="160x160">
@@ -21,15 +21,50 @@
 </head>
 <body ng-controller="ListProjectsController" >
 
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Time Tracking</a>
+	<header>
+		<nav>
+			<ul>
+				<li>
+					<a class="navbar-brand" href="#">Time Tracking</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="container">
+
+		<div id="left-container">
+			<div class="form-group has-feedback">
+				<label class="control-label" for="inputSuccess2">Recherche</label>
+				<input type="text" class="form-control" ng-model="query" placeholder="Nom du projet">
+				<span class="glyphicon glyphicon-search form-control-feedback"></span>
 			</div>
-			<div class="navbar-collapse collapse">
-			</div>
+
+			<ul class="nav nav-sidebar">
+
+				<li ng-repeat="project in projects | filter:query | orderBy:order">
+					<a class="project" ng-class="{active: project.active}" href="#/projects/{{project._id}}" >
+						{{project.name}}
+						<span ng-class='iconClass(project.active)' ></span>
+					</a>
+				</li>
+
+				<li>
+					<hr>
+					<a href="#/projects/add">
+						<span class="glyphicon glyphicon-plus"></span>
+						Ajouter un projet
+					</a>
+				</li>
+
+			</ul>
+		</div>
+		
+		<div id="right-container">
+			
 		</div>
 	</div>
+
 
 	<div class="container-fluid">
 		<div class="row">
@@ -37,30 +72,7 @@
 			<!-- List all projects -->
 			<div class="col-sm-3 col-md-2 sidebar">
 
-				<div class="form-group has-feedback">
-					<label class="control-label" for="inputSuccess2">Recherche</label>
-					<input type="text" class="form-control" ng-model="query" placeholder="Nom du projet">
-					<span class="glyphicon glyphicon-search form-control-feedback"></span>
-				</div>
 
-				<ul class="nav nav-sidebar">
-
-					<li ng-repeat="project in projects | filter:query | orderBy:order">
-						<a class="project" ng-class="{active: project.active}" href="#/projects/{{project._id}}" >
-							{{project.name}}
-							<span ng-class='iconClass(project.active)' ></span>
-						</a>
-					</li>
-
-					<li>
-						<hr>
-						<a href="#/projects/add">
-							<span class="glyphicon glyphicon-plus"></span>
-							Ajouter un projet
-						</a>
-					</li>
-
-				</ul>
 
 			</div>
 
