@@ -1,59 +1,89 @@
-<h1 ng-hide="editMode" >{{project.name}}</h1>
+<di class="row">
 
-<form ng-show="editMode" class="form" role="form">
-	<div class="form-group">
-		<label>Titre</label>
-		<input required type="text" ng-model="project.name" class="form-control" >
-	</div>
-</form>
+	<h1 class='top-title'>{{project.name}}</h1>
 
-<hr>
-
-<p ng-hide="editMode" >{{project.description}}</p>
-
-<form ng-show="editMode"  class="form" role="form">
-	<div class="form-group">
-		<label>Description</label>
-		<textarea required ng-model="project.description" id="" cols="20" rows="10" class="form-control"></textarea>
-	</div>
-</form>
-
-<hr>
-
-<div ng-hide="editMode" total-time >
-	<p class="display-time">{{displayTime}}</p>
-	<canvas pie-chart id="myChart" width="200" height="200"></canvas>
 </div>
 
-<form ng-show="editMode"  class="form" role="form">
-	<div class="form-group">
-		<label for="projectName">Nombre d'heures</label>
-		<input required ng-model="project.estimed_time" type="number" class="form-control" >
+<div class="row">
+
+	<div class="col-md-6">
+
+		<section class="panel">
+
+			<header class="header-panel">
+                Détails du projet
+            </header>
+
+            <div class="content">
+            	
+            	<p ng-hide="editMode" >{{project.name}}</p>
+
+            	<form ng-show="editMode" class="form" role="form">
+            		<div class="form-group">
+            			<label>Titre</label>
+            			<input required type="text" ng-model="project.name" class="form-control" >
+            		</div>
+            	</form>
+
+            	<hr>
+
+            	<p ng-hide="editMode" >{{project.description}}</p>
+
+            	<form ng-show="editMode"  class="form" role="form">
+            		<div class="form-group">
+            			<label>Description</label>
+            			<textarea required ng-model="project.description" id="" cols="20" rows="10" class="form-control"></textarea>
+            		</div>
+            	</form>
+
+            	<hr>
+
+            	<div ng-hide="editMode" total-time >
+            		<p class="display-time">{{displayTime}}</p>
+            		<canvas pie-chart id="myChart" width="200" height="200"></canvas>
+            	</div>
+
+            	<form ng-show="editMode"  class="form" role="form">
+            		<div class="form-group">
+            			<label for="projectName">Nombre d'heures</label>
+            			<input required ng-model="project.estimed_time" type="number" class="form-control" >
+            		</div>
+            	</form>
+
+            	<hr>
+
+            	<p class="actions" >
+            		<a class="btn btn-default btn-large" ng-class="{active: project.active}" ng-click="state(true)">
+            			<span class="glyphicon glyphicon-play" ></span> 
+            			Démarrer
+            		</a> 
+            		<a class="btn btn-default btn-large" ng-class="{active: !project.active}" ng-click="state(false)">
+            			<span class="glyphicon glyphicon-stop" ></span> 
+            			Arrêter
+            		</a>
+            		<button ng-hide="editMode" class="btn btn-info" ng-click="editProject()">
+            			<span class="glyphicon glyphicon-pencil"></span> 
+            			Modifier le projet
+            		</button>	
+            		<button ng-show="editMode" class="btn btn-success" ng-click="updateData()">
+            			<span class="glyphicon glyphicon-ok"></span> 
+            			Sauvegarder les modifications
+            		</button>
+            		<button class="btn btn-danger" ng-click="deleteProject(project._id)">
+            			<span class="glyphicon glyphicon-remove"></span> 
+            			Supprimer ce projet
+            		</button>
+            	</p>
+
+            </div>
+
+		</section>
+
 	</div>
-</form>
 
-<hr>
-
-<p class="actions" >
-	<a class="btn btn-default btn-large" ng-class="{active: project.active}" ng-click="state(true)">
-		<span class="glyphicon glyphicon-play" ></span> 
-		Démarrer
-	</a> 
-	<a class="btn btn-default btn-large" ng-class="{active: !project.active}" ng-click="state(false)">
-		<span class="glyphicon glyphicon-stop" ></span> 
-		Arrêter
-	</a>
-	<button ng-hide="editMode" class="btn btn-info" ng-click="editProject()">
-		<span class="glyphicon glyphicon-pencil"></span> 
-		Modifier le projet
-	</button>	
-	<button ng-show="editMode" class="btn btn-success" ng-click="updateData()">
-		<span class="glyphicon glyphicon-ok"></span> 
-		Sauvegarder les modifications
-	</button>
-	<button class="btn btn-danger" ng-click="deleteProject(project._id)">
-		<span class="glyphicon glyphicon-remove"></span> 
-		Supprimer ce projet
-	</button>
-</p>
+	<div class="col-md-6">
+		
+	</div>
+	
+</di>
 
