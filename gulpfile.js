@@ -29,6 +29,6 @@ gulp.task('browser-syncouille', function(){
 gulp.task('default', ['browser-sync'], function() {
 
 	gulp.watch([gulp_src], ['less-compile']);
-	gulp.watch(['./public/**/*.html', './public/*.html', './public/**/*.js'], ['browser-syncouille']);
+	gulp.watch(['./public/**/*.html', './*.js', './public/*.html', './public/**/*.js'], ['browser-syncouille']);
 
 });

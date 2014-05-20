@@ -38,39 +38,17 @@
 
             	<hr>
 
-            	<div ng-hide="editMode" total-time >
-            		<p class="display-time">{{displayTime}}</p>
-            		<canvas pie-chart id="myChart" width="200" height="200"></canvas>
-            	</div>
-
-            	<form ng-show="editMode"  class="form" role="form">
-            		<div class="form-group">
-            			<label for="projectName">Nombre d'heures</label>
-            			<input required ng-model="project.estimed_time" type="number" class="form-control" >
-            		</div>
-            	</form>
-
-            	<hr>
-
             	<p class="actions" >
-            		<a class="btn btn-default btn-large" ng-class="{active: project.active}" ng-click="state(true)">
-            			<span class="glyphicon glyphicon-play" ></span> 
-            			Démarrer
-            		</a> 
-            		<a class="btn btn-default btn-large" ng-class="{active: !project.active}" ng-click="state(false)">
-            			<span class="glyphicon glyphicon-stop" ></span> 
-            			Arrêter
-            		</a>
             		<button ng-hide="editMode" class="btn btn-info" ng-click="editProject()">
-            			<span class="glyphicon glyphicon-pencil"></span> 
+            			<i class="fa fa-pencil"></i> 
             			Modifier le projet
-            		</button>	
+            		</button>
             		<button ng-show="editMode" class="btn btn-success" ng-click="updateData()">
-            			<span class="glyphicon glyphicon-ok"></span> 
+            			<i class="fa fa-check"></i>
             			Sauvegarder les modifications
             		</button>
-            		<button class="btn btn-danger" ng-click="deleteProject(project._id)">
-            			<span class="glyphicon glyphicon-remove"></span> 
+            		<button class="danger" ng-click="deleteProject(project._id)">
+            			<i class="fa fa-times"></i> 
             			Supprimer ce projet
             		</button>
             	</p>
@@ -82,8 +60,64 @@
 	</div>
 
 	<div class="col-md-6">
-		
+
+		<section class="panel">
+
+			<header class="header-panel">
+                Etapes
+            </header>
+
+
+            <div class="content">
+
+				{{project.steps | json}}
+
+				<hr>
+
+				<div ng-repeat="steps in project.steps " >
+					
+					<h2>{{steps.name}}</h2>
+
+				</div>
+
+				<hr>
+
+				<div>
+
+					<h3>Ajouter une étape</h3>
+					
+					<form role="form" ng-submit="createStep()">
+
+						<div class="form-group">
+							<label for="projectName">Nom de l'étape</label>
+							<input required ng-model="stepForm.name" type="text" class="form-control" id="projectName" name="projectName" placeholder="Nom du projet">
+						</div>
+
+						<div class="form-group">
+							<label for="projectDescription">Description de l'étape</label>
+							<textarea required ng-model="stepForm.description" class="form-control" name="projectDescription" id="projectDescription" rows="5"></textarea>
+						</div>
+
+						<div class="form-group">
+							<label for="projectName">Nombre d'heures éstimé</label>
+							<input required ng-model="stepForm.estimed_time" type="number" class="form-control" id="projectName" name="projectName" >
+						</div>
+
+						<button type="submit" class="btn btn-default">Submit</button>
+
+					</form>
+
+				</div>
+
+
+
+           	</div>
+
+
+		</section>
+
 	</div>
+
 	
 </di>
 

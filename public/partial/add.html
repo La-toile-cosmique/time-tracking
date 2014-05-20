@@ -1,22 +1,41 @@
-<h2>Ajouter un projet</h2>
+<di class="row">
 
-<form role="form" ng-submit="createProject()">
+	<h1 class='top-title'>Ajouter un projet</h1>
 
-	<div class="form-group">
-		<label for="projectName">Nom du projet</label>
-		<input required ng-model="createForm.name" type="text" class="form-control" id="projectName" name="projectName" placeholder="Nom du projet">
-	</div>
+</div>
 
-	<div class="form-group">
-		<label for="projectDescription">Description du projet</label>
-		<textarea required ng-model="createForm.description" class="form-control" name="projectDescription" id="projectDescription" rows="5"></textarea>
-	</div>
+<div class="row">
 
-	<div class="form-group">
-		<label for="projectName">Nombre d'heures éstimé</label>
-		<input required ng-model="createForm.estimed_time" type="number" class="form-control" id="projectName" name="projectName" >
-	</div>
+	<div class="col-md-6">
 
-	<button type="submit" class="btn btn-default">Submit</button>
+		<section class="panel">
 
-</form>
+			<div class="content">
+
+				<form role="form" ng-submit="createProject()">
+
+					<div class="form-group">
+						<label for="projectName">Nom du projet</label>
+						<input required ng-model="createForm.name" type="text" class="form-control" id="projectName" name="projectName" placeholder="Nom du projet">
+					</div>
+
+					<div class="form-group">
+						<label for="projectDescription">Description du projet</label>
+						<textarea required ng-model="createForm.description" class="form-control" name="projectDescription" id="projectDescription" cols="120"></textarea>
+					</div>
+
+					<button type="submit" class="btn btn-default">Ajouter</button>
+
+				</form>
+
+			</div>
+
+
+	    </section>
+
+	 </div>
+
+</div>
+
+
+
