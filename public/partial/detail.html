@@ -70,15 +70,13 @@
 
             <div class="content">
 
-				<hr>
-
 				<div ng-repeat="item in project.steps" >
 
 					<p><button ng-click="deleteStep(item._id)" class='danger fl-right' >Supprimer</button><h2>{{item.name}}</h2> </p>
 					
 				</div>
 
-				<hr>
+				<hr ng-show="steps" >
 
 				<div>
 

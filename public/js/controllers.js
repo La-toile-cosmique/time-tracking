@@ -15,13 +15,16 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 
 // List All Projets
 .controller( 'ListProjectsController', ['$scope', 'projectsData', 'REST', function($scope, projectsData, REST){
-	projectsData.set( REST.query( ) );
+
+	projectsData.set( REST.query() );
+
 	$scope.iconClass = function(active){
 		if(active)
 			return 'glyphicon glyphicon-play';
 		else
 			return 'glyphicon glyphicon-stop';
 	};
+
 	$scope.$watch(
 		function () {
 			return projectsData.get();
@@ -30,6 +33,7 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 			$scope.projects = projects;
 		}
 	);
+
 }])
 
 // Add Controller
@@ -47,77 +51,60 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 				Alert.addAlert( 'Projet ajouté' );
 
 			});
-
 		};
-
 	}])
 
 // Detail Controller
 .controller(
 	'DetailProjectController',
 	['Alert', '$scope', '$resource', 'REST', 'REST2', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
-	function(Alert, $scope, $resource, REST, REST2, $routeParams, csTimeFilter, $filter, projectsData, $location) {
 
-		$scope.projects = projectsData.get();
+		function(Alert, $scope, $resource, REST, REST2, $routeParams, csTimeFilter, $filter, projectsData, $location) {
 
-		var search = $filter('filter')( $scope.projects, { _id: $routeParams.projectId }, true );
+			$scope.$watch(
+				function () {
+					return projectsData.get();
+				},
+				function ( projects ) {
+					$scope.projects = projects;
+		    		var search = $filter('filter')( projects, { _id: $routeParams.projectId }, true );
+					if ( search.length )
+						$scope.project = search[ 0 ];
+				}
+			);
+			
+			// Delete a project
+			$scope.deleteProject = function( id_project ){
 
-		if ( search.length )
-			$scope.project = search[ 0 ];
+				projects = REST.delete( { first_param: $scope.project._id }, function() {
 
-		// Delete a project
-		$scope.deleteProject = function( id_project ){
+					projectsData.set( projects );
+					$location.path( '/welcome/' ); 
+					$location.replace( );
 
-			projects = REST.delete( { first_param: $scope.project._id }, function() {
+				});
+			};
 
-				projectsData.set( projects );
-				$location.path( '/welcome/' );
-				$location.replace( );
+			$scope.editProject = function(){ $scope.editMode = true }
 
-			});
+			// Edit a project
+			$scope.updateData = function() {
 
-		};
+				REST.update( {
+					name: 			$scope.project.name,
+					description: 	$scope.project.description,
+					estimed_time: 	$scope.project.estimed_time,
+					first_param: 	$scope.project._id
+				} );
 
-		$scope.editProject = function(){ $scope.editMode = true }
+				Alert.addAlert( 'Projet modifié' );
 
-		// Edit a project
-		$scope.updateData = function() {
+				$scope.editMode = false;
 
-			REST.update( {
-				name: 			$scope.project.name,
-				description: 	$scope.project.description,
-				estimed_time: 	$scope.project.estimed_time,
-				first_param: 	$scope.project._id
-			} );
-
-			Alert.addAlert( 'Projet modifié' );
-			$timeout( function(){ Alert.clearAlert(); }, 5000);
-
-			$scope.editMode = false;
-
-		};
-
-		$scope.createStep = function(){
-
-			$scope.stepForm.first_param = $scope.project._id;
-
-			projects = REST2.add( $scope.stepForm, function(){
-
-				search = $filter('filter')( projects, { _id: $routeParams.projectId }, true );
-
-				if ( search.length )
-					$scope.project = search[ 0 ];
-
-				projectsData.set( projects );
-
-				$scope.stepForm = {};
-				Alert.addAlert( 'Etape ajoutée' );
-
-			});
-
-		};
-
-	}])
+			};
+		}
+	]
+)
 
 
 // Steps Controller
@@ -126,16 +113,16 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 	['Alert', '$scope', '$resource', 'REST', 'REST2', '$timeout', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
 	function(Alert, $scope, $resource, REST, REST2, $timeout, $routeParams, csTimeFilter, $filter, projectsData, $location) {
 
-		$scope.steps = $scope.project.steps;
-
 		$scope.createStep = function(){
 
 			$scope.stepForm.first_param = $scope.project._id;
 
 			projects = REST2.add( $scope.stepForm, function(){
 
+				//Pass new projects data to service
 				projectsData.set( projects );
 
+				//Empty the form and display alert
 				$scope.stepForm = {};
 				Alert.addAlert( 'Etape ajoutée' );
 
@@ -146,16 +133,16 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 
 		$scope.deleteStep = function(id){
 
-			console.log(id);
-
 			projects = REST2.delete(
-				{ first_param: id},
+
+				{ first_param: id },
+
 				function(){
 
+					//Pass new projects data to service
 					projectsData.set( projects );
-					
-					$scope.steps = $scope.project.steps;
 
+					//Display alert
 					Alert.addAlert( 'Etape supprimée' );
 
 				}
