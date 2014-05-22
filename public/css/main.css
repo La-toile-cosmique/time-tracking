@@ -264,6 +264,12 @@ hr {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+.fl-right {
+  float: right;
+}
+.fl-left {
+  float: left;
+}
 /*!
 * Bootstrap v3.1.1 (http://getbootstrap.com)
 * Copyright 2011-2014 Twitter, Inc.

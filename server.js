@@ -48,12 +48,6 @@ app.post('/api/steps/:id_project', function(req, res){
 				project.steps.push(step);
 				project.save(function (err) {
 
-/*					console.log(step);
-					console.log(err);*/
-
-					console.log(project);
-					console.log('coucou');
-
 					returnAll( res );
 
 				});
@@ -64,6 +58,42 @@ app.post('/api/steps/:id_project', function(req, res){
 
 	);
 
+});
+
+//Delete a step
+app.delete('/api/steps/:id_step', function(req, res){
+
+	Data.steps.findOne( { _id  : req.params.id_step }, function ( err, step ){
+
+		if ( err )
+			res.send( err );
+
+		Data.projects.findById(step._project, function ( err, project ) {
+
+			if (err) return handleError(err);
+
+			var index = project.steps.indexOf(step._id);
+
+			if (index > -1) {
+				project.steps.splice(index, 1);
+			}
+
+			project.save(function (err) {
+
+				if ( err )
+					res.send( err );
+
+				Data.steps.remove({ _id: req.params.id_step }, function (err) {
+
+					if ( err )
+						res.send( err );
+
+					returnAll( res );
+
+				});
+			});
+		});
+	});
 });
 
 

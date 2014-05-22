@@ -55,13 +55,12 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 // Detail Controller
 .controller(
 	'DetailProjectController',
-	['Alert', '$scope', '$resource', 'REST', 'REST2', '$timeout', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
-	function(Alert, $scope, $resource, REST, REST2, $timeout, $routeParams, csTimeFilter, $filter, projectsData, $location) {
+	['Alert', '$scope', '$resource', 'REST', 'REST2', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
+	function(Alert, $scope, $resource, REST, REST2, $routeParams, csTimeFilter, $filter, projectsData, $location) {
 
 		$scope.projects = projectsData.get();
 
-		var timeoutId,
-			search = $filter('filter')( $scope.projects, { _id: $routeParams.projectId }, true );
+		var search = $filter('filter')( $scope.projects, { _id: $routeParams.projectId }, true );
 
 		if ( search.length )
 			$scope.project = search[ 0 ];
@@ -116,6 +115,51 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 
 			});
 
+		};
+
+	}])
+
+
+// Steps Controller
+.controller(
+	'StepsController',
+	['Alert', '$scope', '$resource', 'REST', 'REST2', '$timeout', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
+	function(Alert, $scope, $resource, REST, REST2, $timeout, $routeParams, csTimeFilter, $filter, projectsData, $location) {
+
+		$scope.steps = $scope.project.steps;
+
+		$scope.createStep = function(){
+
+			$scope.stepForm.first_param = $scope.project._id;
+
+			projects = REST2.add( $scope.stepForm, function(){
+
+				projectsData.set( projects );
+
+				$scope.stepForm = {};
+				Alert.addAlert( 'Etape ajoutée' );
+
+			});
+
+		};
+
+
+		$scope.deleteStep = function(id){
+
+			console.log(id);
+
+
+			projects = REST2.delete(
+				{ first_param: id},
+				function(){
+
+/*					projectsData.set( projects );
+
+					$scope.stepForm = {};
+					Alert.addAlert( 'Etape ajoutée' );*/
+
+				}
+			);
 		};
 
 	}]);

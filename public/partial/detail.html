@@ -59,7 +59,7 @@
 
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-6" ng-controller="StepsController" >
 
 		<section class="panel">
 
@@ -73,9 +73,9 @@
 				<hr>
 
 				<div ng-repeat="item in project.steps" >
-					
-					<h2>{{item.name}}</h2>
 
+					<p><button ng-click="deleteStep(item._id)" class='danger fl-right' >Supprimer</button><h2>{{item.name}}</h2> </p>
+					
 				</div>
 
 				<hr>
