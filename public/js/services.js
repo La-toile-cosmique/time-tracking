@@ -33,7 +33,16 @@ var timeTrackingServices = angular.module( 'timeTrackingServices', [ 'ngResource
 			delete:  	{ method: 'DELETE', isArray: true },
 			query: 		{ method: 'GET', params: {}, isArray: true },
 			post: 		{ method: 'POST', params: {}, isArray: true },
-			update: 	{ method: 'PUT', params: { first_param: '@first_param' }, isArray: true }
+			update: 	{ method: 'PUT', params: { first_param: '@first_param' }, isArray: true },
+		}
+	);
+}])
+
+.factory('REST2', [ '$resource', function( $resource ) {
+	return $resource('/api/steps/:first_param/:second_param', {},
+		{
+			add: { method: 'POST', params: { first_param: '@first_param' }, isArray: true },
 		}
 	);
 }]);
+

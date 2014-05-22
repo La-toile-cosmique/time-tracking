@@ -70,13 +70,11 @@
 
             <div class="content">
 
-				{{project.steps | json}}
-
 				<hr>
 
-				<div ng-repeat="steps in project.steps " >
+				<div ng-repeat="item in project.steps" >
 					
-					<h2>{{steps.name}}</h2>
+					<h2>{{item.name}}</h2>
 
 				</div>
 

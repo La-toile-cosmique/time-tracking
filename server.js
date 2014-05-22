@@ -16,6 +16,7 @@ function returnAll( res ){
 		.find()
 		.populate('steps')
 		.exec(function ( err, result ) {
+
 			if ( err )
 				res.send( err );
 			res.json( result );
@@ -23,24 +24,48 @@ function returnAll( res ){
 }
 
 //Add a step
-app.post('/api/steps/add/:id_project', function(req, res){
-	Data.projects.findOne( { _id  : req.params.id_project }, function ( err, result ){
-		if( result )
-			Data.steps.create(
-				{ 
-					name: 'coucou',
-					_project: req.params.id_project
-				},
-				function() {
-					if ( err )
-						res.send( err );
+app.post('/api/steps/:id_project', function(req, res){
+
+	Data.projects;
+	Data.steps;
+
+	Data.steps.create(
+
+		{ 
+			name         	: req.body.name,
+			description  	: req.body.description,
+			estimed_time	: req.body.estimed_time,
+			_project		: req.params.id_project
+		},
+
+		function(err, step) {
+
+			if ( err )
+				res.send( err );
+
+			Data.projects.findById(req.params.id_project, function (err, project) {
+
+				project.steps.push(step);
+				project.save(function (err) {
+
+/*					console.log(step);
+					console.log(err);*/
+
+					console.log(project);
+					console.log('coucou');
+
 					returnAll( res );
-				}
-			);
-		else
-			returnAll( res );
-	});
+
+				});
+
+			});
+
+		}
+
+	);
+
 });
+
 
 /*//Start a project
 app.get('/api/projects/start/:id_project', function(req, res){
@@ -147,3 +172,15 @@ app.get('*', function( req, res ) {
 });
 
 app.listen( 4000 );
+
+
+
+
+
+
+
+
+
+
+
+
