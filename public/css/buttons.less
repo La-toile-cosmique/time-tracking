@@ -1,5 +1,6 @@
  
  button{
+ 	margin-right: 5px;
 	display: inline-block;
 	margin-bottom: 0;
 	font-weight: 400;
@@ -18,11 +19,15 @@
 	-ms-user-select: none;
 	user-select: none;
 	color: #fff;
-	background-color: #5cb85c;
-	border-color: #4cae4c;
+	background-color: @green;
+	border-color: darken(@green, 5%);
+}
+button.fl-right{
+	margin: 0;
+	margin-left: 5px;
 }
 button.danger{
 	color: #fff;
-	background-color: #d9534f;
+	background-color: #c2453e;
 	border-color: #d43f3a;
 }

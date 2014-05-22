@@ -1,59 +1,59 @@
 timeTrackingDirectives = angular.module('timeTrackingDirectives', [])
 
-.directive('totalTime', ['secondsToTimeFilter', 'pctTimeFilter', '$interval', function(secondsToTimeFilter, pctTimeFilter, $interval) {
-	function linker(scope, element, attrs) {
+.directive('mytruc',
 
-		var timeoutId,
-			ctx = document.getElementById( "myChart" ).getContext( "2d" ),
-			chartOptions = { animation : false },
-			myNewChart = new Chart( ctx ).Pie( { }, chartOptions ),
-			seconds = scope.project.totalTime;
+	['secondsToTimeFilter', 'pctTimeFilter', 'csTimeFilter', 'pctTimeFilter', '$interval',
 
-		function updateTime() {
+		function(secondsToTimeFilter, pctTimeFilter, csTimeFilter, pctTimeFilter, $interval) {
 
-			scope.displayTime = secondsToTimeFilter(seconds) + ' sur ' + scope.project.estimed_time + 'h';
+			function linker(scope, element, attrs) {
 
-			var pct = pctTimeFilter(seconds, scope.project.estimed_time);
+				var timeoutId,
+					totaltime,
+					date = scope.step.date,
+					active = scope.step.active,
+					seconds = scope.step.seconds;
 
-			data = [{
-				value:   pct,
-				color:"#428bca"
-			},
-			{
-				value : 100 - pct,
-				color : "#eee"
-			}];
+				function updateTime() {
 
-			myNewChart = new Chart(ctx).Pie(data, chartOptions);
+					if(active)
+						totaltime = csTime(date, seconds);
+					else
+						totaltime = seconds;
 
+					scope.step.pct = pctTimeFilter(totaltime, scope.step.estimed_time);
+
+				}
+
+				scope.$watch('step.active', function(value) {
+					if(value)
+						startTimer();
+					else
+						stopTimer();
+				});
+
+				function startTimer(){
+				    timeoutId = $interval(function() {
+				    	seconds ++;
+			      		updateTime();
+				  	}, 1000);
+				}
+
+				function stopTimer(){
+					$interval.cancel(timeoutId);
+				}
+
+				updateTime();
+
+				element.on('$destroy', function() {
+					stopTimer();
+				});
+
+			}
+
+			return {
+				link : linker
+			};
 		}
-
-		scope.$watch('project.active', function(value) {
-			if(value)
-				startTimer();
-			else
-				stopTimer();
-		});
-
-		function startTimer(){
-		    timeoutId = $interval(function() {
-		    	seconds ++;
-	      		updateTime();
-		  	}, 1000);
-		}
-
-		function stopTimer(){
-			$interval.cancel(timeoutId);
-		}
-
-		updateTime();
-
-		element.on('$destroy', function() {
-			stopTimer();
-		});
-
-	}
-	return {
-		link : linker
-	};
-}])
+	]
+);

@@ -113,6 +113,7 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 	['Alert', '$scope', '$resource', 'REST', 'REST2', '$timeout', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
 	function(Alert, $scope, $resource, REST, REST2, $timeout, $routeParams, csTimeFilter, $filter, projectsData, $location) {
 
+
 		$scope.createStep = function(){
 
 			$scope.stepForm.first_param = $scope.project._id;
@@ -125,6 +126,8 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 				//Empty the form and display alert
 				$scope.stepForm = {};
 				Alert.addAlert( 'Etape ajoutée' );
+
+				$scope.adidou = false;
 
 			});
 
@@ -148,5 +151,12 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 				}
 			);
 		};
+
+		$scope.addmode = function(){ 
+			if(!$scope.adidou) 
+				$scope.adidou = true 
+			else 
+				$scope.adidou = false 
+	}
 
 	}]);

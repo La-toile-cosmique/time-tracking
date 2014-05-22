@@ -40,7 +40,7 @@
 
             	<p class="actions" >
             		<button ng-hide="editMode" class="btn btn-info" ng-click="editProject()">
-            			<i class="fa fa-pencil"></i> 
+            			<i class="fa fa-pencil"></i>
             			Modifier le projet
             		</button>
             		<button ng-show="editMode" class="btn btn-success" ng-click="updateData()">
@@ -59,26 +59,37 @@
 
 	</div>
 
-	<div class="col-md-6" ng-controller="StepsController" >
+	<div class="col-md-6 test" ng-controller="StepsController" >
 
 		<section class="panel">
 
 			<header class="header-panel">
-                Etapes
+                Tâches
             </header>
 
 
             <div class="content">
 
-				<div ng-repeat="item in project.steps" >
+            	<ul class="goal-progress" >
+            		<li ng-repeat="step in project.steps"  >
+                        <div class="details">
+                            <div class="title">
+                                <a href="#">{{step.name}}</a>
+                            </div>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{step.pct}}" aria-valuemin="0" aria-valuemax="100" style="width: {{step.pct}}%">
+                                    <span mytruc class="">{{step.pct}}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            	</ul>
 
-					<p><button ng-click="deleteStep(item._id)" class='danger fl-right' >Supprimer</button><h2>{{item.name}}</h2> </p>
-					
-				</div>
+<!-- 						<button ng-click="deleteStep(step._id)" class='danger fl-right' >Supprimer</button>
+<button ng-click="" class='fl-right' >Arrêter</button>
+<button ng-click="" class='fl-right' >Démarrer</button> -->
 
-				<hr ng-show="steps" >
-
-				<div>
+				<div ng-show="adidou" >
 
 					<h3>Ajouter une étape</h3>
 					
@@ -86,7 +97,7 @@
 
 						<div class="form-group">
 							<label for="projectName">Nom de l'étape</label>
-							<input required ng-model="stepForm.name" type="text" class="form-control" id="projectName" name="projectName" placeholder="Nom du projet">
+							<input required ng-model="stepForm.name" type="text" class="form-control" id="projectName" name="projectName" placeholder="Nom de l'étape">
 						</div>
 
 						<div class="form-group">
@@ -99,21 +110,21 @@
 							<input required ng-model="stepForm.estimed_time" type="number" class="form-control" id="projectName" name="projectName" >
 						</div>
 
-						<button type="submit" class="btn btn-default">Submit</button>
+						<button type="submit" class="btn" >Ajouter</button>
 
 					</form>
 
+					<button ng-click="addmode()" class="btn danger fl-right" type='btn' >Annuler</button>
+
 				</div>
 
-
+				<button ng-hide="adidou" ng-click="addmode()" type="submit" class="btn btn-default">Ajouter</button>
 
            	</div>
-
 
 		</section>
 
 	</div>
-
 	
 </di>
 
