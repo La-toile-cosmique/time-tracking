@@ -2,9 +2,9 @@ timeTrackingDirectives = angular.module('timeTrackingDirectives', [])
 
 .directive('mytruc',
 
-	['secondsToTimeFilter', 'pctTimeFilter', 'csTimeFilter', 'pctTimeFilter', '$interval',
+	['secondsToTimeFilter', 'pctTimeFilter', 'csTimeFilter', 'pctTimeFilter', 'secondsToTimeFilter', '$interval',
 
-		function(secondsToTimeFilter, pctTimeFilter, csTimeFilter, pctTimeFilter, $interval) {
+		function(secondsToTimeFilter, pctTimeFilter, csTimeFilter, pctTimeFilter, secondsToTimeFilter, $interval) {
 
 			function linker(scope, element, attrs) {
 
@@ -22,6 +22,8 @@ timeTrackingDirectives = angular.module('timeTrackingDirectives', [])
 						totaltime = seconds;
 
 					scope.step.pct = pctTimeFilter(totaltime, scope.step.estimed_time);
+
+					element.text(secondsToTimeFilter(totaltime) + ' sur ' + scope.step.estimed_time + 'h');
 
 				}
 

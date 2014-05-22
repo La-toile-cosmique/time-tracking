@@ -1052,9 +1052,13 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #fff;
-  background-color: #65cea7;
-  border-color: #52c89c;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+button:hover {
+  background-color: #ebebeb;
+  border-color: #adadad;
 }
 button.fl-right {
   margin: 0;
@@ -2795,6 +2799,10 @@ a:hover {
   font-size: 14px;
   font-weight: bold;
 }
+.panel header.main-title {
+  background: #424f63;
+  color: #fff;
+}
 .panel .content {
   padding: 15px;
 }
@@ -2805,14 +2813,17 @@ a:hover {
 .panel ul.goal-progress li {
   display: inline-block;
   width: 100%;
-  border-bottom: 1px dashed #dcdcdc;
+  border-bottom: 1px dashed #ccc;
   margin-bottom: 15px;
 }
 .panel ul.goal-progress li .title {
   margin-bottom: 10px;
+  font-size: 1.5em;
+  font-weight: 300;
 }
 .panel ul.goal-progress li .title a {
-  color: #65cea7;
+  color: #424f63;
+  display: block;
 }
 .panel .progress {
   overflow: hidden;

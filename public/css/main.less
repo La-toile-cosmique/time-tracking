@@ -42,11 +42,11 @@ a:hover{
 	header{
 		background: @grey;
 		h1{
-			margin: 30px 0;
+			margin: 30px 0; 
 		}
 	}
-	background: @grey;
-	width: 240px;
+	background: @grey; 
+	width: 240px; 
 	position: fixed;
 	height: 100%;
 	overflow-y: auto;
@@ -109,7 +109,7 @@ a:hover{
 			width: 170px;
 			border: none;
 			color: @grey2;
-		}
+		} 
 		i{
 			line-height: 40px;
 			margin-right: 8px;
@@ -144,6 +144,10 @@ a:hover{
 		color: #535351; 
 		font-size: 14px;
 		font-weight: bold; 
+		&.main-title{
+			background: @grey;
+			color: #fff;
+		}
 	}
 	.content{
 		padding: 15px;
@@ -154,13 +158,16 @@ a:hover{
 		li{
 			.title{
 				margin-bottom: 10px;
+				font-size: 1.5em;
+				font-weight: 300;
 				a{
-					color: @green;
+					color: @grey;
+					display: block;
 				}
 			}
 			display: inline-block;
 			width: 100%;
-			border-bottom: 1px dashed #dcdcdc;
+			border-bottom: 1px dashed #ccc;
 			margin-bottom: 15px;
 		}
 	}

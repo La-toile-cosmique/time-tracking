@@ -10,7 +10,7 @@
 
 		<section class="panel">
 
-			<header class="header-panel">
+			<header class="header-panel main-title">
                 Détails du projet
             </header>
 
@@ -71,18 +71,41 @@
             <div class="content">
 
             	<ul class="goal-progress" >
+
             		<li ng-repeat="step in project.steps"  >
+
                         <div class="details">
+
                             <div class="title">
                                 <a href="#">{{step.name}}</a>
                             </div>
+
                             <div class="progress progress-xs">
                                 <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{step.pct}}" aria-valuemin="0" aria-valuemax="100" style="width: {{step.pct}}%">
-                                    <span mytruc class="">{{step.pct}}%</span>
+                                    <span class="">{{step.pct}}%</span>
                                 </div>
                             </div>
+
                         </div>
+
+
+                        <div class="step-view">
+
+                        	<p>{{step.description}}</p>
+
+                        	<p mytruc ></p>
+
+							<p>
+								<button class='fa fa-play' ng-click='startStep(step._id)' ></button>
+								<button class='fa fa-stop' ng-click='stopStep(step._id)' ></button>
+								<button class='fa fa-pencil' ng-click='editStep(step._id)' ></button>
+								<button class='fa fa-times-circle danger' ng-click='deleteStep(step._id)' ></button>
+							</p>
+
+                        </div>
+
                     </li>
+
             	</ul>
 
 <!-- 						<button ng-click="deleteStep(step._id)" class='danger fl-right' >Supprimer</button>
