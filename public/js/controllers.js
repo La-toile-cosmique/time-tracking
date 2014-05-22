@@ -148,15 +148,15 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 
 			console.log(id);
 
-
 			projects = REST2.delete(
 				{ first_param: id},
 				function(){
 
-/*					projectsData.set( projects );
+					projectsData.set( projects );
+					
+					$scope.steps = $scope.project.steps;
 
-					$scope.stepForm = {};
-					Alert.addAlert( 'Etape ajoutée' );*/
+					Alert.addAlert( 'Etape supprimée' );
 
 				}
 			);
