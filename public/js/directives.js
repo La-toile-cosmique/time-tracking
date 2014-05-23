@@ -10,23 +10,29 @@ timeTrackingDirectives = angular.module('timeTrackingDirectives', [])
 
 				var timeoutId,
 					totaltime,
-					date = scope.step.date,
-					active = scope.step.active,
-					seconds = scope.step.seconds;
+					date 			= scope.step.start_date,
+					active 			= scope.step.active,
+					seconds 		= scope.step.seconds,
+					estimed_time 	= scope.step.estimed_time;
 
+
+				if(active) // if the step is active, the filter return of seconds since date + seconds
+					totaltime = csTimeFilter(date, seconds);
+				else
+					totaltime = seconds;
+
+				/**
+				 * Update time visualization in pct and in text  
+				 * @return void
+				 */
 				function updateTime() {
-
-					if(active)
-						totaltime = csTime(date, seconds);
-					else
-						totaltime = seconds;
-
 					scope.step.pct = pctTimeFilter(totaltime, scope.step.estimed_time);
-
 					element.text(secondsToTimeFilter(totaltime) + ' sur ' + scope.step.estimed_time + 'h');
-
 				}
 
+				/**
+				 * Watch active step
+				 */
 				scope.$watch('step.active', function(value) {
 					if(value)
 						startTimer();
@@ -34,22 +40,33 @@ timeTrackingDirectives = angular.module('timeTrackingDirectives', [])
 						stopTimer();
 				});
 
+				/**
+				 * Update Time every seconds
+				 */
 				function startTimer(){
 				    timeoutId = $interval(function() {
-				    	seconds ++;
+				    	totaltime ++;
 			      		updateTime();
 				  	}, 1000);
 				}
 
+				/**
+				 * Stop timer
+				 * @return {[type]} [description]
+				 */
 				function stopTimer(){
 					$interval.cancel(timeoutId);
 				}
 
-				updateTime();
-
+				/**
+				 * Stop timer on destroy, if not called, 
+				 * timer just continue in background
+				 */
 				element.on('$destroy', function() {
 					stopTimer();
 				});
+
+				updateTime(); //First call
 
 			}
 

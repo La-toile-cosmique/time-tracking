@@ -31,7 +31,7 @@ app.post('/api/steps/:id_project', function(req, res){
 
 	Data.steps.create(
 
-		{ 
+		{
 			name         	: req.body.name,
 			description  	: req.body.description,
 			estimed_time	: req.body.estimed_time,
@@ -49,15 +49,10 @@ app.post('/api/steps/:id_project', function(req, res){
 				project.save(function (err) {
 
 					returnAll( res );
-
 				});
-
 			});
-
 		}
-
 	);
-
 });
 
 //Delete a step
@@ -97,24 +92,59 @@ app.delete('/api/steps/:id_step', function(req, res){
 });
 
 
-/*//Start a project
-app.get('/api/projects/start/:id_project', function(req, res){
-	Data.projects.findOne( { _id  : req.params.id_project }, function ( err, result ){
-		if( !result.active )
-			Data.projects.update(
-			{ _id : req.params.id_project },
-			{ active: true, start_date: Date() },
-			function() {
-				if ( err )
-					res.send( err );
-				returnAll( res );
-			}
-		);
+//Start a step
+app.get('/api/steps/start/:id_step', function(req, res){
+
+	Data.steps.findOne( { _id  : req.params.id_step }, function ( err, step ){
+
+		if( !step.active )
+			Data.steps.update(
+
+				{ _id : req.params.id_step },
+				{ active: true, start_date: Date() },
+
+				function() {
+					if ( err )
+						res.send( err );
+					returnAll( res );
+				}
+
+			);
+
 		else
 			returnAll( res );
 	});
 });
-*/
+
+//Stop step
+app.get('/api/steps/stop/:id_step', function(req, res){
+
+	Data.steps.findOne( { _id  : req.params.id_step }, function ( err, step ){
+
+		if( step.active )
+			Data.steps.update(
+
+				{ _id : req.params.id_step },
+
+				{
+					active	: false,
+				  	seconds	: timeComponent.timeFromNow( step.start_date, step.seconds )
+				},
+
+				function() {
+					if ( err )
+						res.send( err );
+					returnAll( res );
+				}
+
+			);
+
+		else
+			returnAll( res );
+	});
+});
+
+
 //Stop a project
 /*app.get( '/api/projects/stop/:id_project', function( req, res ){
 	Data.projects.findOne( { _id  : req.params.id_project }, function ( err, result ) {
@@ -198,13 +228,23 @@ app.delete( '/api/projects/:id_project', function( req, res ){
 app.get('*', function( req, res ) {
 
 	res.sendfile( './public/index.html' );
-
 });
 
 app.listen( 4000 );
 
 
+var util = require('util'),
+    exec = require('child_process').exec,
+    child;
 
+child = exec('gulp', // command line argument directly in string
+function (error, stdout, stderr) {      // one easy function to capture data/errors
+	console.log('stdout: ' + stdout);
+	console.log('stderr: ' + stderr);
+	if (error !== null) {
+		console.log('exec error: ' + error);
+	}
+});
 
 
 

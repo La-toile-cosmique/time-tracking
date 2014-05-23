@@ -1052,12 +1052,12 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #333;
   background-color: #fff;
   border-color: #ccc;
+  color: #555;
 }
 button:hover {
-  background-color: #ebebeb;
+  color: #333;
   border-color: #adadad;
 }
 button.fl-right {
@@ -2847,7 +2847,7 @@ a:hover {
   line-height: 20px;
   color: #fff;
   text-align: center;
-  background-color: #65cea7;
+  background-color: #424f63;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -webkit-transition: width .6s ease;
@@ -2859,6 +2859,9 @@ a:hover {
 }
 .panel .progress-bar span {
   padding-right: 10px;
+}
+.panel .progress-bar.active {
+  background-color: #65cea7;
 }
 .test {
   padding-left: 0 !important;

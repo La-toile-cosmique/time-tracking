@@ -113,6 +113,14 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 	['Alert', '$scope', '$resource', 'REST', 'REST2', '$timeout', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
 	function(Alert, $scope, $resource, REST, REST2, $timeout, $routeParams, csTimeFilter, $filter, projectsData, $location) {
 
+		$scope.stateStep = function(id, active){
+
+			if(active)
+				projects = REST2.start({ second_param: id }, function(){ projectsData.set( projects ) });
+			else
+				projects = REST2.stop({ second_param: id }, function(){ projectsData.set( projects ) });
+
+		};
 
 		$scope.createStep = function(){
 

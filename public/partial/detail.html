@@ -6,6 +6,8 @@
 
 <div class="row">
 
+	<!-- Project Detail -->
+
 	<div class="col-md-6">
 
 		<section class="panel">
@@ -59,6 +61,8 @@
 
 	</div>
 
+	<!-- StepsController -->
+
 	<div class="col-md-6 test" ng-controller="StepsController" >
 
 		<section class="panel">
@@ -81,7 +85,7 @@
                             </div>
 
                             <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{step.pct}}" aria-valuemin="0" aria-valuemax="100" style="width: {{step.pct}}%">
+                                <div ng-class="{active: step.active}" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{step.pct}}" aria-valuemin="0" aria-valuemax="100" style="width: {{step.pct}}%">
                                     <span class="">{{step.pct}}%</span>
                                 </div>
                             </div>
@@ -93,11 +97,13 @@
 
                         	<p>{{step.description}}</p>
 
+                        	<p>{{step.active}}</p>
+
                         	<p mytruc ></p>
 
 							<p>
-								<button class='fa fa-play' ng-click='startStep(step._id)' ></button>
-								<button class='fa fa-stop' ng-click='stopStep(step._id)' ></button>
+								<button class='fa fa-play' ng-click='stateStep(step._id, true)' ></button>
+								<button class='fa fa-stop' ng-click='stateStep(step._id)' ></button>
 								<button class='fa fa-pencil' ng-click='editStep(step._id)' ></button>
 								<button class='fa fa-times-circle danger' ng-click='deleteStep(step._id)' ></button>
 							</p>
@@ -107,10 +113,6 @@
                     </li>
 
             	</ul>
-
-<!-- 						<button ng-click="deleteStep(step._id)" class='danger fl-right' >Supprimer</button>
-<button ng-click="" class='fl-right' >Arrêter</button>
-<button ng-click="" class='fl-right' >Démarrer</button> -->
 
 				<div ng-show="adidou" >
 

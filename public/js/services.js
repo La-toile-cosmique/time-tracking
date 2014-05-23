@@ -43,6 +43,8 @@ var timeTrackingServices = angular.module( 'timeTrackingServices', [ 'ngResource
 		{
 			add 	: { method: 'POST', params: { first_param: '@first_param' }, isArray: true },
 			delete 	: { method: 'DELETE', params: { first_param: '@first_param' }, isArray: true },
+			start 	: { method: 'GET', params: { first_param: 'start', second_param: '@second_param' }, isArray: true },
+			stop 	: { method: 'GET', params: { first_param: 'stop', second_param: '@second_param' }, isArray: true },
 		}
 	);
 }]);
