@@ -47,7 +47,10 @@
 			<ul class="nav nav-sidebar">
 
 				<li ng-repeat="project in projects | filter:query | orderBy:order">
-					<a href="#/projects/{{project._id}}"><i class="fa fa-stop"></i> <span>{{project.name}}</span></a>
+					<a href="#/projects/{{project._id}}">
+						<i ng-if='project.active' class="fa fa-play"></i> 
+						<span>{{project.name}}</span>
+					</a>
 				</li>
 
 				<li class='add-project'>

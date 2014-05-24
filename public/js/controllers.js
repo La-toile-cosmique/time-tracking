@@ -25,14 +25,36 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 			return 'glyphicon glyphicon-stop';
 	};
 
+	function checkActive( projects ){
+
+		var index;
+		for (index = 0; index < projects.length; ++index) {
+
+		    var index2;
+		    for (index2 = 0; index2 < projects[index].steps.length; ++index2) {
+
+		        if(projects[index].steps[index2].active)
+		        	projects[index].active = true;
+		        
+		    }
+		    
+		}
+
+		return projects;
+	}
+
+
 	$scope.$watch(
 		function () {
-			return projectsData.get();
+			return checkActive( projectsData.get() );
 		},
 		function ( projects ) {
+
 			$scope.projects = projects;
+
 		}
 	);
+
 
 }])
 
@@ -60,6 +82,8 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 	['Alert', '$scope', '$resource', 'REST', 'REST2', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
 
 		function(Alert, $scope, $resource, REST, REST2, $routeParams, csTimeFilter, $filter, projectsData, $location) {
+
+
 
 			$scope.$watch(
 				function () {

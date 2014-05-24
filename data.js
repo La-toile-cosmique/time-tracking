@@ -20,7 +20,6 @@ var storySchema = Schema({
 var Projects = new Schema({
 	name         	: { type: String, default: "New project" },
 	description		: { type: String, default: "Description of the new project" },
-	active			: { type: Boolean, default: false },
 	steps 	 		: [{ type: Schema.Types.ObjectId, ref: 'steps' }],
 	buff 			: Buffer,
 });
