@@ -236,8 +236,3 @@ app.get('*', function( req, res ) {
 });
 
 app.listen( 4000 );
-
-
-var util = require('util'),
-    exec = require('child_process').exec,
-    child;
