@@ -1,5 +1,5 @@
 server:
-    scheme: sftp
+    scheme: sftp 
     host: sd-42572.dedibox.fr
     port: 22
     user: guillaume
