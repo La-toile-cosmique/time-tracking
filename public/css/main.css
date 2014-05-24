@@ -2833,6 +2833,10 @@ a:hover {
   color: #424f63;
   display: block;
 }
+.panel ul.goal-progress li .title a i {
+  color: #ddd;
+  vertical-align: middle;
+}
 .panel .progress {
   overflow: hidden;
   height: 20px;

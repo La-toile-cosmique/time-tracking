@@ -88,8 +88,12 @@
                         		</div>
 
                             <div ng-hide='step.show' class="title">
-                            	{{step.active}}
-                                <a ng-click='showDetails(step)' ><i ng-class="{fa-play: step.active}" class='fa' ></i>{{step.name}}</a>
+
+                                <a ng-click='showDetails(step)' >
+                                	<i ng-if='step.active' class='fa fa-play' ></i>
+                                	{{step.name}}
+                                </a>
+
                             </div>
 
                             <div ng-hide='step.show' class="progress progress-xs">
