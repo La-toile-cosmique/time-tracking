@@ -6,5 +6,5 @@ server:
     pass: AVG19N8gZCWI
     check: true
     path:
-        local: ./
+        local: /
         remote: timetracking/
