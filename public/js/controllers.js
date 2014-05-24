@@ -113,6 +113,47 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 	['Alert', '$scope', '$resource', 'REST', 'REST2', '$timeout', '$routeParams', 'csTimeFilter', '$filter', 'projectsData', '$location',
 	function(Alert, $scope, $resource, REST, REST2, $timeout, $routeParams, csTimeFilter, $filter, projectsData, $location) {
 
+		$scope.showDetails = function( item ){
+
+			if(item.details == true)
+				item.details = false;
+			else
+				item.details = true;
+		}
+
+		$scope.editStep = function( item ){
+
+			if (item.show == true) {
+
+				projects = REST2.update(
+
+				{
+					first_param :  	item._id,
+					name        : 	item.name,
+					description	: 	item.description,
+					seconds		: 	item.seconds,
+					estimed_time: 	item.estimed_time
+				},
+
+				function(){ 
+
+					projectsData.set( projects ) 
+
+				});
+			
+				Alert.addAlert( 'Etape modifiée' );
+
+			}
+
+			else{
+
+				item.show = true;
+
+				REST2.stop( { second_param: item._id } );
+
+			}
+		}
+
 		$scope.stateStep = function(id, active){
 
 			if(active)
@@ -160,11 +201,11 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 			);
 		};
 
-		$scope.addmode = function(){ 
+		$scope.addmode = function(){
+
 			if(!$scope.adidou) 
 				$scope.adidou = true 
 			else 
 				$scope.adidou = false 
 	}
-
-	}]);
+}]);

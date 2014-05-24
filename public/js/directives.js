@@ -68,6 +68,10 @@ timeTrackingDirectives = angular.module('timeTrackingDirectives', [])
 
 				updateTime(); //First call
 
+				scope.updateTime = function(){ // Used to manually refresh time form controller
+					updateTime();
+				}
+
 			}
 
 			return {

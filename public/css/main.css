@@ -270,6 +270,9 @@ hr {
 .fl-left {
   float: left;
 }
+.hidden {
+  display: none;
+}
 /*!
 * Bootstrap v3.1.1 (http://getbootstrap.com)
 * Copyright 2011-2014 Twitter, Inc.
@@ -1060,14 +1063,19 @@ button:hover {
   color: #333;
   border-color: #adadad;
 }
-button.fl-right {
-  margin: 0;
-  margin-left: 5px;
-}
 button.danger {
   color: #fff;
   background-color: #c2453e;
   border-color: #d43f3a;
+}
+button.success {
+  color: #fff;
+  background-color: #65cea7;
+  border-color: #3ec291;
+}
+button.fl-right {
+  margin: 0;
+  margin-left: 5px;
 }
 .form-group {
   margin-bottom: 15px;
@@ -2865,4 +2873,7 @@ a:hover {
 }
 .test {
   padding-left: 0 !important;
+}
+a:hover {
+  cursor: pointer;
 }

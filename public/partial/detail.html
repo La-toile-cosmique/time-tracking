@@ -18,7 +18,7 @@
 
             <div class="content">
             	
-            	<p ng-hide="editMode" >{{project.name}}</p>
+            	<p ng-hide="editMode" ><i ng-class="" class="fa"></i>{{project.name}}</p>
 
             	<form ng-show="editMode" class="form" role="form">
             		<div class="form-group">
@@ -80,11 +80,19 @@
 
                         <div class="details">
 
-                            <div class="title">
-                                <a href="#">{{step.name}}</a>
+                        	<form role="form" ng-submit="createStep()">
+
+                        		<div ng-show='step.show' class="form-group">
+                        			<label for="projectName">Nom de l'étape</label>
+                        			<input required ng-model="step.name" type="text" class="form-control" id="projectName" name="projectName" placeholder="Nom de l'étape" >
+                        		</div>
+
+                            <div ng-hide='step.show' class="title">
+                            	{{step.active}}
+                                <a ng-click='showDetails(step)' ><i ng-class="{fa-play: step.active}" class='fa' ></i>{{step.name}}</a>
                             </div>
 
-                            <div class="progress progress-xs">
+                            <div ng-hide='step.show' class="progress progress-xs">
                                 <div ng-class="{active: step.active}" class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{step.pct}}" aria-valuemin="0" aria-valuemax="100" style="width: {{step.pct}}%">
                                     <span class="">{{step.pct}}%</span>
                                 </div>
@@ -92,20 +100,37 @@
 
                         </div>
 
+                        <div ng-show='step.details' class="step-view">
 
-                        <div class="step-view">
+                        	<p ng-hide='step.show' >{{step.description}}</p>
 
-                        	<p>{{step.description}}</p>
+                        	<div ng-show='step.show' class="form-group">
+                        		<label for="projectDescription">Description de l'étape</label>
+                        		<textarea required ng-model="step.description" class="form-control" name="projectDescription" id="projectDescription" rows="5"></textarea>
+                        	</div>
 
-                        	<p>{{step.active}}</p>
+                        	<div ng-show='step.show' class="form-group">
+                        		<label for="projectName">Nombre d'heures écoulées</label>
+                        		<input required ng-model="step.seconds" type="number" class="form-control" id="projectName" name="projectName" >
+                        	</div>
 
-                        	<p mytruc ></p>
+                        	<div ng-show='step.show' class="form-group">
+                        		<label for="projectName">Nombre d'heures éstimé</label>
+                        		<input required ng-model="step.estimed_time" type="number" class="form-control" id="projectName" name="projectName" >
+                        	</div>
+
+                        	<p ng-hide='step.show' mytruc ></p>
+
+                        	</form>
 
 							<p>
-								<button class='fa fa-play' ng-click='stateStep(step._id, true)' ></button>
-								<button class='fa fa-stop' ng-click='stateStep(step._id)' ></button>
-								<button class='fa fa-pencil' ng-click='editStep(step._id)' ></button>
-								<button class='fa fa-times-circle danger' ng-click='deleteStep(step._id)' ></button>
+
+								<button ng-hide='step.show' class='fa fa-play' ng-click='stateStep(step._id, true)' ></button>
+								<button ng-hide='step.show' class='fa fa-stop' ng-click='stateStep(step._id)' ></button>
+
+								<button ng-class="{success: step.show}" class='fa fa-pencil' ng-click='editStep(step)' ></button>
+								<button ng-hide='step.show' class='fa fa-times-circle danger' ng-click='deleteStep(step._id)' ></button>
+
 							</p>
 
                         </div>
