@@ -147,8 +147,6 @@ app.get('/api/steps/stop/:id_step', function(req, res){
 //Update a step
 app.put('/api/steps/:id_step', function(req, res){
 
-	console.log(req.body)
-
 	Data.steps.update(
 
 			{ _id : req.params.id_step },
@@ -243,12 +241,3 @@ app.listen( 4000 );
 var util = require('util'),
     exec = require('child_process').exec,
     child;
-
-/*child = exec('gulp', // command line argument directly in string
-function (error, stdout, stderr) {      // one easy function to capture data/errors
-	console.log('stdout: ' + stdout);
-	console.log('stderr: ' + stderr);
-	if (error !== null) {
-		console.log('exec error: ' + error);
-	}
-});*/
