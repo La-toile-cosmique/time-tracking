@@ -16,7 +16,7 @@ gulp.task('less-compile', function() {
 gulp.task('browser-sync', function() {
     browserSync.init( 
     	null, 
-    	{proxy: "localhost:4000"}
+    	{proxy: "localhost:4050"}
 	);
 });
 

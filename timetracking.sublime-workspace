@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"min-",
+				"min-height"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"step",
+				"stepForm"
+			],
+			[
 				"border",
 				"border-right"
 			],
@@ -20,24 +36,12 @@
 				"font-size"
 			],
 			[
-				"bor",
-				"border-bottom"
-			],
-			[
-				"margin",
-				"margin-bottom"
-			],
-			[
 				"margin-",
 				"margin-bottom"
 			],
 			[
 				"mar",
 				"margin"
-			],
-			[
-				"min-",
-				"min-width"
 			],
 			[
 				"bode",
@@ -339,11 +343,11 @@
 		"selected_items":
 		[
 			[
-				"de",
+				"del",
 				"Trailing Spaces: Delete Trailing Spaces"
 			],
 			[
-				"del",
+				"de",
 				"Trailing Spaces: Delete Trailing Spaces"
 			],
 			[
@@ -460,6 +464,26 @@
 	},
 	"file_history":
 	[
+		"/D/Applications/Javascript/TimeTracking/public/js/app.js",
+		"/D/Applications/Javascript/TimeTracking/public/partial/add.html",
+		"/D/Applications/Javascript/TimeTracking/public/partial/detail.html",
+		"/D/Applications/Javascript/TimeTracking/public/index.html",
+		"/D/Applications/Javascript/TimeTracking/public/js/directives.js",
+		"/D/Applications/Javascript/TimeTracking/public/js/controllers.js",
+		"/D/Applications/Javascript/TimeTracking/public/js/angular/angular-sanitize.min.js",
+		"/D/Applications/Javascript/TimeTracking/public/js/angular/textAngularSetup.js",
+		"/D/Applications/Javascript/TimeTracking/public/css/main.less",
+		"/C/Users/Guillaume/AppData/Local/Temp/fz3temp-1/admin_carrier_wizard.js",
+		"/C/Users/Guillaume/AppData/Local/Temp/fz3temp-1/view.tpl",
+		"/D/Applications/Javascript/TimeTracking/server.js",
+		"/C/Users/Guillaume/Desktop/coucou.js",
+		"/C/Users/Guillaume/Desktop/doc.txt",
+		"/D/Applications/Javascript/TimeTracking/public/js/vendor/jquery-2.1.1.min.js",
+		"/D/Applications/Javascript/TimeTracking/public/css/wysiwig.less",
+		"/D/Applications/Javascript/TimeTracking/timetracking.sublime-project",
+		"/D/Applications/Javascript/TimeTracking/public/js/vendor/wysihtml5.js",
+		"/D/Applications/Javascript/TimeTracking/public/js/vendor/parser_rules.js",
+		"/D/Applications/Javascript/TimeTracking/public/js/vendor/parser-rules.js",
 		"/D/Applications/Php/Tripshop/themes/tripshop/js/global.js",
 		"/D/Applications/Php/Tripshop/themes/tripshop/sass/modules/blocktopmenu/css/blocktopmenu.scss",
 		"/D/Applications/Php/Tripshop/themes/tripshop/sass/modules/blocktopmenu/css/superfish-modified.scss",
@@ -500,7 +524,6 @@
 		"/C/Users/Guillaume/AppData/Local/Temp/Rar$DIa0.940/jquery.vmap.france.js",
 		"/C/Users/Guillaume/Desktop/manifestinteractive-jqvmap-1044285/jqvmap/maps/jquery.vmap.france.js",
 		"/D/Applications/Html/OfisPro_Front/.gitignore",
-		"/D/Applications/Javascript/TimeTracking/public/index.html",
 		"/D/Applications/Javascript/TimeTracking/public/partial/welcome.html",
 		"/D/Applications/Javascript/TimeTracking/dploy.yaml",
 		"/C/Users/Guillaume/Desktop/Nouveau dossier/jqvmap/jquery.vmap.min.js",
@@ -510,13 +533,8 @@
 		"/C/Users/Guillaume/Desktop/Nouveau dossier/samples/algeria.html",
 		"/D/Applications/Html/OfisPro_Front/css/bootstrap.min.css",
 		"/D/Applications/Html/OfisPro_Front/node_modules/gulp/node_modules/gulp-util/package.json",
-		"/D/Applications/Javascript/TimeTracking/public/partial/detail.html",
-		"/D/Applications/Javascript/TimeTracking/public/js/controllers.js",
-		"/D/Applications/Javascript/TimeTracking/server.js",
 		"/D/Applications/Javascript/TimeTracking/data.js",
-		"/D/Applications/Javascript/TimeTracking/public/css/main.less",
 		"/D/Applications/Javascript/TimeTracking/public/js/services.js",
-		"/D/Applications/Javascript/TimeTracking/public/js/directives.js",
 		"/D/Applications/Javascript/TimeTracking/public/css/buttons.less",
 		"/D/Applications/Javascript/TimeTracking/public/css/general.less",
 		"/D/Applications/Javascript/TimeTracking/public/js/filters.js",
@@ -524,10 +542,8 @@
 		"/D/Applications/Javascript/TimeTracking/public/css/main.css",
 		"/D/Applications/Javascript/TimeTracking/test.js",
 		"/D/Applications/Javascript/TimeTracking/gulpfile.js",
-		"/D/Applications/Javascript/TimeTracking/public/partial/add.html",
 		"/C/Users/Guillaume/Desktop/page du compte libre + comments.bmml",
 		"/C/Console2/console.xml",
-		"/D/Applications/Javascript/TimeTracking/public/js/app.js",
 		"/D/Applications/Javascript/TimeTracking/public/css/form.less",
 		"/C/Users/Guillaume/Desktop/Psytrance No. 77 (2013)/Hopeku -08- Black Light (Original Mix) - 4A - 145.mp3",
 		"/C/Users/Guillaume/Desktop/tripshop.sql",
@@ -575,19 +591,7 @@
 		"/D/Applications/Php/Carlos/app/View/Layouts/default.ctp",
 		"/D/Applications/Php/Carlos/app/webroot/css/pageflip-custom.css",
 		"/D/Applications/Php/Carlos/app/webroot/js/flip.js",
-		"/C/Users/Guillaume/Desktop/pageflip5/js/pageflip5-min.js",
-		"/C/Users/Guillaume/Desktop/pageflip5/template4_offline_safe.html",
-		"/D/Applications/Php/Carlos/app/View/Achievements/view.ctp",
-		"/D/Applications/Php/Carlos/app/View/Elements/Achievements/list.ctp",
-		"/D/Applications/Php/pageflip5/template2_demobook2.html",
-		"/D/Applications/Php/Carlos/app/View/Shows/view.ctp",
-		"/D/Applications/Php/Carlos/app/webroot/css/main.css",
-		"/D/Applications/Php/Carlos/app/webroot/js/turn.js",
-		"/D/Applications/Php/Carlos/app/Controller/AchievementsController.php",
-		"/D/Applications/Php/Carlos/app/webroot/css/admin.css",
-		"/D/Applications/Php/Carlos/app/View/Pages/index.ctp",
-		"/D/Applications/Php/Carlos/app/View/Achievements/index.ctp",
-		"/D/Applications/Php/Carlos/app/View/Shows/index.ctp"
+		"/C/Users/Guillaume/Desktop/pageflip5/js/pageflip5-min.js"
 	],
 	"find":
 	{
@@ -615,6 +619,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"pan",
+			"panel",
+			"carrier_wizard",
+			"string_price",
+			"labelNext",
+			"time",
+			"click",
+			"adidou",
 			"quick",
 			"group_reduction",
 			"$group_reduction",
@@ -734,15 +746,7 @@
 			"consol",
 			"h2",
 			"div",
-			"found",
-			"fish_id",
-			"returnAll",
-			"\\n\\n",
-			"project",
-			"false",
-			"\\n\n",
-			"	\n",
-			"\\n\\n"
+			"found"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -847,6 +851,46 @@
 		"selected_items":
 		[
 			[
+				"mai",
+				"public/css/main.less"
+			],
+			[
+				"ser",
+				"server.js"
+			],
+			[
+				"add",
+				"public/partial/add.html"
+			],
+			[
+				"detail",
+				"public/partial/detail.html"
+			],
+			[
+				"main",
+				"public/css/main.less"
+			],
+			[
+				"inde",
+				"public/index.html"
+			],
+			[
+				"contro",
+				"public/js/controllers.js"
+			],
+			[
+				"direct",
+				"public/js/directives.js"
+			],
+			[
+				"app",
+				"public/js/app.js"
+			],
+			[
+				"index",
+				"public/index.html"
+			],
+			[
 				"glo",
 				"js/global.js"
 			],
@@ -895,18 +939,6 @@
 				"header.tpl"
 			],
 			[
-				"main",
-				"js/main.js"
-			],
-			[
-				"index",
-				"index.html"
-			],
-			[
-				"inde",
-				"index.html"
-			],
-			[
 				"main.le",
 				"less/main.less"
 			],
@@ -941,18 +973,6 @@
 			[
 				"server",
 				"server.js"
-			],
-			[
-				"contro",
-				"public/js/controllers.js"
-			],
-			[
-				"detail",
-				"public/partial/detail.html"
-			],
-			[
-				"ser",
-				"public/js/services.js"
 			],
 			[
 				"servi",
@@ -1011,10 +1031,6 @@
 				"public/js/filters.js"
 			],
 			[
-				"mai",
-				"public/css/main.less"
-			],
-			[
 				"det",
 				"public/partial/detail.html"
 			],
@@ -1025,10 +1041,6 @@
 			[
 				"test",
 				"test.js"
-			],
-			[
-				"add",
-				"public/partial/add.html"
 			],
 			[
 				"serve",
@@ -1239,10 +1251,6 @@
 				"Config/core.php"
 			],
 			[
-				"direct",
-				"public/js/directives.js"
-			],
-			[
 				"angul",
 				"public/js/angular/angular.js"
 			],
@@ -1281,10 +1289,6 @@
 			[
 				"ind",
 				"public/index.html"
-			],
-			[
-				"app",
-				"public/js/app.js"
 			],
 			[
 				"tim",
