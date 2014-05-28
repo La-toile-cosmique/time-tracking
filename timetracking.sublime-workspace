@@ -335,6 +335,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 4083,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 795,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -800,8 +816,61 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "server.js",
+					"settings":
+					{
+						"buffer_size": 4083,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3908,
+								3908
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3960.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "gulpfile.js",
+					"settings":
+					{
+						"buffer_size": 795,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								458,
+								458
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -850,6 +919,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"gulp",
+				"gulpfile.js"
+			],
 			[
 				"mai",
 				"public/css/main.less"
@@ -929,10 +1002,6 @@
 			[
 				"footer",
 				"footer.tpl"
-			],
-			[
-				"gulp",
-				"gulpfile.js"
 			],
 			[
 				"head",
