@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/D/Applications/Javascript/TimeTracking",
+			"folder_exclude_patterns": ["node_modules"]
+		}
+	]
+}
