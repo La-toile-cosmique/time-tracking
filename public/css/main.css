@@ -2814,26 +2814,30 @@ a:hover {
 .panel .content {
   padding: 15px;
 }
+.panel li {
+  list-style-type: disc;
+}
 .panel ul.goal-progress {
   list-style-type: none;
   padding: 0;
 }
-.panel ul.goal-progress li {
+.panel ul.goal-progress > li {
   display: inline-block;
   width: 100%;
   border-bottom: 1px dashed #ccc;
   margin-bottom: 15px;
 }
-.panel ul.goal-progress li .title {
+.panel ul.goal-progress > li .title {
+  list-style-type: none;
   margin-bottom: 10px;
   font-size: 1.5em;
   font-weight: 300;
 }
-.panel ul.goal-progress li .title a {
+.panel ul.goal-progress > li .title a {
   color: #424f63;
   display: block;
 }
-.panel ul.goal-progress li .title a i {
+.panel ul.goal-progress > li .title a i {
   color: #ddd;
   vertical-align: middle;
 }
