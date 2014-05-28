@@ -2,16 +2,14 @@ var timeTrackingApp = angular.module('timeTrackingApp', [
 	'timeTrackingControllers',
 	'timeTrackingDirectives',
 	'timeTrackingServices',
-	'timeTrackingRoutes',
 	'timeTrackingFilters',
+	'timeTrackingRoutes',
+	'textAngular'
 ]);
 
 
 /**
  * On ready function
- * @param  {[type]} funcName [description]
- * @param  {[type]} baseObj  [description]
- * @return {[type]}          [description]
  */
 (function(funcName, baseObj) {
     // The public function name defaults to window.docReady
@@ -82,26 +80,6 @@ var timeTrackingApp = angular.module('timeTrackingApp', [
         }
     }
 })("docReady", window);
-
-
-/**
- * Init wysiwyg editor
- * @param  String id  textarea ID
- * @param  Object options Options
- * @return void
- */
-function initEditor(id, options){
-
-	var editor = new wysihtml5.Editor(
-		id, 
-		{ // id of textarea element
-			toolbar:      "wysihtml5-toolbar", // id of toolbar element
-			parserRules:  wysihtml5ParserRules // defined in parser rules set 
-		}
-	);
-
-}
-
 
 
 

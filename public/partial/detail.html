@@ -17,8 +17,6 @@
             </header>
 
             <div class="content">
-            	
-            	<p ng-hide="editMode" ><i ng-class="" class="fa"></i>{{project.name}}</p>
 
             	<form ng-show="editMode" class="form" role="form">
             		<div class="form-group">
@@ -27,14 +25,12 @@
             		</div>
             	</form>
 
-            	<hr>
-
-            	<p ng-hide="editMode" >{{project.description}}</p>
+            	<p ng-hide="editMode"  ng-bind-html="project.description" ></p>
 
             	<form ng-show="editMode"  class="form" role="form">
             		<div class="form-group">
             			<label>Description</label>
-            			<textarea required ng-model="project.description" id="" cols="20" rows="10" class="form-control"></textarea>
+            			<text-angular ng-model="project.description"></text-angular>
             		</div>
             	</form>
 
@@ -104,13 +100,14 @@
 
                         </div>
 
+						<!-- Step details -->
                         <div ng-show='step.details' class="step-view">
 
-                        	<p ng-hide='step.show' >{{step.description}}</p>
+                        	<div ng-hide='step.show' ng-bind-html="step.description" ></div>
 
                         	<div ng-show='step.show' class="form-group">
                         		<label for="projectDescription">Description de l'étape</label>
-                        		<textarea required ng-model="step.description" class="form-control" name="projectDescription" id="projectDescription" rows="5"></textarea>
+                        		<text-angular ng-model="step.description"></text-angular>
                         	</div>
 
                         	<div ng-show='step.show' class="form-group">
@@ -123,7 +120,7 @@
                         		<input required ng-model="step.estimed_time" type="number" class="form-control" id="projectName" name="projectName" >
                         	</div>
 
-                        	<p ng-hide='step.show' mytruc ></p>
+                        	<p ng-hide='step.show' time-display ></p>
 
                         	</form>
 
@@ -143,7 +140,7 @@
 
             	</ul>
 
-				<div ng-show="adidou" >
+				<div ng-show="stepadd" >
 
 					<h3>Ajouter une étape</h3>
 					
@@ -155,8 +152,12 @@
 						</div>
 
 						<div class="form-group">
+
 							<label for="projectDescription">Description de l'étape</label>
-							<textarea required ng-model="stepForm.description" class="form-control" name="projectDescription" id="projectDescription" rows="5"></textarea>
+
+							<!-- Description Textarea -->
+							<text-angular ng-model="stepForm.description"></text-angular>
+
 						</div>
 
 						<div class="form-group">
@@ -165,14 +166,13 @@
 						</div>
 
 						<button type="submit" class="btn" >Ajouter</button>
+						<button ng-click="addmode()" class="btn danger fl-right" type='btn' >Annuler</button>
 
 					</form>
 
-					<button ng-click="addmode()" class="btn danger fl-right" type='btn' >Annuler</button>
-
 				</div>
 
-				<button ng-hide="adidou" ng-click="addmode()" type="submit" class="btn btn-default">Ajouter</button>
+				<button ng-hide="stepadd" ng-click="addmode()" type="submit" class="btn btn-default">Ajouter</button>
 
            	</div>
 
@@ -180,5 +180,5 @@
 
 	</div>
 	
-</di>
+</div>
 

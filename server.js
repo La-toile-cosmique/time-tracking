@@ -26,9 +26,6 @@ function returnAll( res ){
 //Add a step
 app.post('/api/steps/:id_project', function(req, res){
 
-	Data.projects;
-	Data.steps;
-
 	Data.steps.create(
 
 		{

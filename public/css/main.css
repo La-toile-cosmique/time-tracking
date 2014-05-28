@@ -2881,3 +2881,13 @@ a:hover {
 a:hover {
   cursor: pointer;
 }
+#taTextElement {
+  min-height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-top: 15px;
+}
+.btn-group {
+  margin-bottom: 5px;
+}

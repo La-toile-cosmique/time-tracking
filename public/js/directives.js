@@ -1,6 +1,7 @@
 timeTrackingDirectives = angular.module('timeTrackingDirectives', [])
 
-.directive('mytruc',
+// Display time
+.directive('timeDisplay',
 
 	['secondsToTimeFilter', 'pctTimeFilter', 'csTimeFilter', 'pctTimeFilter', 'secondsToTimeFilter', '$interval',
 
@@ -22,7 +23,7 @@ timeTrackingDirectives = angular.module('timeTrackingDirectives', [])
 					totaltime = seconds;
 
 				/**
-				 * Update time visualization in pct and in text  
+				 * Update time visualization in pct and in text
 				 * @return void
 				 */
 				function updateTime() {
@@ -59,7 +60,7 @@ timeTrackingDirectives = angular.module('timeTrackingDirectives', [])
 				}
 
 				/**
-				 * Stop timer on destroy, if not called, 
+				 * Stop timer on destroy, if not called,
 				 * timer just continue in background
 				 */
 				element.on('$destroy', function() {
@@ -79,4 +80,5 @@ timeTrackingDirectives = angular.module('timeTrackingDirectives', [])
 			};
 		}
 	]
+
 );

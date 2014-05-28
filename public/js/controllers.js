@@ -145,39 +145,12 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 				item.details = true;
 		}
 
-		$scope.editStep = function( item ){
 
-			if (item.show == true) {
 
-				projects = REST2.update(
-
-				{
-					first_param :  	item._id,
-					name        : 	item.name,
-					description	: 	item.description,
-					seconds		: 	item.seconds,
-					estimed_time: 	item.estimed_time
-				},
-
-				function(){ 
-
-					projectsData.set( projects ) 
-
-				});
-			
-				Alert.addAlert( 'Etape modifiée' );
-
-			}
-
-			else{
-
-				item.show = true;
-
-				REST2.stop( { second_param: item._id } );
-
-			}
-		}
-
+		/**
+		 * Change step state
+		 * @return void
+		 */
 		$scope.stateStep = function(id, active){
 
 			if(active)
@@ -187,9 +160,37 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 
 		};
 
+		$scope.editStep = function( item ){
+			if (item.show == true) {	
+
+				projects = REST2.update({
+					first_param :  	item._id,			
+					name        : 	item.name,		
+					description	: 	item.description,		
+					seconds		: 	item.seconds,			
+					estimed_time: 	item.estimed_time},			
+					function(){projectsData.set( projects )
+				});		
+
+				Alert.addAlert( 'Etape modifiée' );		
+			}		
+				else{			
+
+					item.show = true;			
+					REST2.stop( { second_param: item._id } );
+					
+				}		
+			}
+
+		/**
+		 * Add a step
+		 * @return void
+		 */
 		$scope.createStep = function(){
 
 			$scope.stepForm.first_param = $scope.project._id;
+
+			console.log($scope.stepForm);
 
 			projects = REST2.add( $scope.stepForm, function(){
 
@@ -200,13 +201,15 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 				$scope.stepForm = {};
 				Alert.addAlert( 'Etape ajoutée' );
 
-				$scope.adidou = false;
+				$scope.stepadd = false;
 
 			});
 
 		};
 
-
+		/**
+		 * Delete a step
+		 */
 		$scope.deleteStep = function(id){
 
 			projects = REST2.delete(
@@ -227,11 +230,10 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 
 		$scope.addmode = function(){
 
-			if(!$scope.adidou){
-				$scope.adidou = true 
-				initEditor("projectDescription");
+			if(!$scope.stepadd){
+				$scope.stepadd = true 
 			}
 			else 
-				$scope.adidou = false 
+				$scope.stepadd = false 
 	}
 }]);
