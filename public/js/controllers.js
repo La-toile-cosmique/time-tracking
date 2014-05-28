@@ -227,8 +227,10 @@ timeTrackingControllers = angular.module('timeTrackingControllers', [])
 
 		$scope.addmode = function(){
 
-			if(!$scope.adidou) 
+			if(!$scope.adidou){
 				$scope.adidou = true 
+				initEditor("projectDescription");
+			}
 			else 
 				$scope.adidou = false 
 	}
