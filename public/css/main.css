@@ -1073,6 +1073,10 @@ button.success {
   background-color: #65cea7;
   border-color: #3ec291;
 }
+button.active {
+  color: #fff;
+  background-color: #424f63;
+}
 button.fl-right {
   margin: 0;
   margin-left: 5px;
