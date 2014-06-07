@@ -335,22 +335,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "server.js",
-			"settings":
-			{
-				"buffer_size": 4083,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "gulpfile.js",
-			"settings":
-			{
-				"buffer_size": 795,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -480,6 +464,10 @@
 	},
 	"file_history":
 	[
+		"/D/Applications/Javascript/TimeTracking/server.js",
+		"/D/Applications/Javascript/TimeTracking/gulpfile.js",
+		"/D/Applications/Javascript/TimeTracking/public/css/main.less",
+		"/D/Applications/Javascript/TimeTracking/public/css/drop-shadow.svg",
 		"/D/Applications/Javascript/TimeTracking/public/js/app.js",
 		"/D/Applications/Javascript/TimeTracking/public/partial/add.html",
 		"/D/Applications/Javascript/TimeTracking/public/partial/detail.html",
@@ -488,10 +476,8 @@
 		"/D/Applications/Javascript/TimeTracking/public/js/controllers.js",
 		"/D/Applications/Javascript/TimeTracking/public/js/angular/angular-sanitize.min.js",
 		"/D/Applications/Javascript/TimeTracking/public/js/angular/textAngularSetup.js",
-		"/D/Applications/Javascript/TimeTracking/public/css/main.less",
 		"/C/Users/Guillaume/AppData/Local/Temp/fz3temp-1/admin_carrier_wizard.js",
 		"/C/Users/Guillaume/AppData/Local/Temp/fz3temp-1/view.tpl",
-		"/D/Applications/Javascript/TimeTracking/server.js",
 		"/C/Users/Guillaume/Desktop/coucou.js",
 		"/C/Users/Guillaume/Desktop/doc.txt",
 		"/D/Applications/Javascript/TimeTracking/public/js/vendor/jquery-2.1.1.min.js",
@@ -557,7 +543,6 @@
 		"/D/Applications/Javascript/TimeTracking/timecomponent.js",
 		"/D/Applications/Javascript/TimeTracking/public/css/main.css",
 		"/D/Applications/Javascript/TimeTracking/test.js",
-		"/D/Applications/Javascript/TimeTracking/gulpfile.js",
 		"/C/Users/Guillaume/Desktop/page du compte libre + comments.bmml",
 		"/C/Console2/console.xml",
 		"/D/Applications/Javascript/TimeTracking/public/css/form.less",
@@ -606,8 +591,7 @@
 		"/D/Applications/Php/Carlos/app/View/Magazines/view.ctp",
 		"/D/Applications/Php/Carlos/app/View/Layouts/default.ctp",
 		"/D/Applications/Php/Carlos/app/webroot/css/pageflip-custom.css",
-		"/D/Applications/Php/Carlos/app/webroot/js/flip.js",
-		"/C/Users/Guillaume/Desktop/pageflip5/js/pageflip5-min.js"
+		"/D/Applications/Php/Carlos/app/webroot/js/flip.js"
 	],
 	"find":
 	{
@@ -816,61 +800,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "server.js",
-					"settings":
-					{
-						"buffer_size": 4083,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3908,
-								3908
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 3960.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "gulpfile.js",
-					"settings":
-					{
-						"buffer_size": 795,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								458,
-								458
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -920,6 +851,10 @@
 		"selected_items":
 		[
 			[
+				"main",
+				"public/css/main.less"
+			],
+			[
 				"gulp",
 				"gulpfile.js"
 			],
@@ -938,10 +873,6 @@
 			[
 				"detail",
 				"public/partial/detail.html"
-			],
-			[
-				"main",
-				"public/css/main.less"
 			],
 			[
 				"inde",
