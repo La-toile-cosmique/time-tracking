@@ -2731,15 +2731,8 @@ a:hover {
   color: #65cea7;
 }
 #left-side #logo img {
-  -webkit-filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.3));
-  filter: url(#drop-shadow);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#333')";
-  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#333')";
-  text-shadow: 0 0 1px #333;
   vertical-align: middle;
-  color: #424f63;
-  font-size: 2em;
-  margin-left: 15px;
+  margin-left: 13px;
 }
 #left-side a {
   color: #fff;
