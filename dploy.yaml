@@ -1,9 +1,9 @@
 server:
     scheme: sftp 
-    host: sd-42572.dedibox.fr
-    port: 22
-    user: guillaume
-    pass: AVG19N8gZCWI
+    host: 
+    port:
+    user:
+    pass: 
     check: true
     path:
         local: /
